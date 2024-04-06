@@ -1,0 +1,13 @@
+.body{
+    display: flex;
+    width: 1920px; /* 100% der Viewport-Breite */
+    height: 100vh; /* 100% der Viewport-Höhe */
+    background-color: var(--primary-color);
+    margin: 0 auto; /* Horizontal zentrieren */
+}
+
+.dokument{
+    display: flex;
+    background-color: var(--primary-color);
+
+}

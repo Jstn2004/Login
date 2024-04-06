@@ -1,5 +1,62 @@
 <div class="body">
-    <div class="login-container">
-        
+  <div class="login-container">
+    <div class="login-form">
+      <p class="welcome">Create Account for</p>
+      <p class="logo">
+        <img src="../../../assets/logo.png" /> <span>MyDashCraft</span>
+      </p>
+      <form action="">
+        <label>Name</label>
+        <input
+          class="input"
+          [class.error-active]="auth.errorResponse"
+          type="text"
+          [(ngModel)]="auth.name"
+          placeholder="Enter your name"
+          name="name"
+        />
+        <label>Email</label>
+        <input
+          class="input"
+          [class.error-active]="auth.errorResponse"
+          type="text"
+          [(ngModel)]="auth.registeremail"
+          placeholder="Enter your Email"
+          name="email"
+        />
+        <label>Password</label>
+        <input
+          class="input2"
+          type="password"
+          [class.error-active]="auth.errorResponse"
+          [(ngModel)]="auth.registerpassword"
+          (ngModelChange)="checkpassword()"
+          placeholder="*************"
+          name="password"
+          max="64"
+          min="6"
+        />
+        <ul>
+          <li class="length"  [class.length-error]="passwordlenght">Use 8 to 64 characters</li>
+          <li class="symbols" [class.symbols-error]="passwordsymbols">Use symbols (!&commat;#$%^*-_+=)</li>
+          <li class="numbers" [class.numbers-error]="passwordnumbers">Use a number</li>
+        </ul>
+        <button
+          class="button"
+          [disabled]="buttondisabled"
+          [class.error-active]="auth.errorResponse"
+          (click)="auth.RegisterUser()"
+        >
+          Create Account
+        </button>
+        <p class="create-account">
+          Already an account? <br />
+          <a href="../login/">Sign in</a>
+        </p>
+        <p class="error" *ngIf="auth.errorResponse">
+          Invalid Email or Password
+        </p>
+      </form>
     </div>
+  </div>
 </div>

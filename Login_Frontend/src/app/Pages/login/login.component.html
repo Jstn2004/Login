@@ -3,12 +3,18 @@
         <div class="login-form">
             <p class="welcome">Welcome to</p>
             <p class="logo"><img src="../../../assets/logo.png"> <span>MyDashCraft</span> </p>
-            <form>
+            <form action="">
                 <label>Email</label>
-                <input type="text" placeholder="Enter your Email">
+                <input class="input" [class.error-active]="auth.errorResponse" type="text" placeholder="Enter your Email" [(ngModel)]="auth.email" name="email">
                 <label>Password</label>
-                <input type="text" placeholder="*************">
-                <p class="forgotpassword"><a>Forgott password?</a></p>
+                <input class="input" [class.error-active]="auth.errorResponse" [type]="passwordFieldType" placeholder="*************" [(ngModel)]="auth.password" name="password">
+                <p class="forgotpassword">
+                    <a class="eyeimg" (click)="toggleType()" ><img [src]="img"></a><a class="passwordhover">Forgott password?</a>
+                </p>
+                <button class="button" [class.error-active]="auth.errorResponse" (click)="auth.SendLoginDatas()">Sign in</button>
+                <p class="create-account">Don´t have an account? <br> <a href="../sign/">Sign on for free?</a></p>
+                <p class="error" *ngIf="auth.errorResponse" >Invalid Email or Password</p>
+
             </form>
 
         </div>
