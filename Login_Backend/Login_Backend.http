@@ -1,6 +1,13 @@
-@Login_Backend_HostAddress = http://localhost:5013
+@Login_Backend_HostAddress = https://localhost:7045
 
-GET {{Login_Backend_HostAddress}}/weatherforecast/
+POST {{Login_Backend_HostAddress}}/sign
 Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "hubertjustin01@gmail.com",
+  "password": "dein_Passwort"
+}
+
 
 ###
